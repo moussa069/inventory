@@ -1,0 +1,34 @@
+
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top d-flex align-items-center">
+  
+  {% if user.is_authenticated %}  
+  <div class="container d-flex align-items-center">
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <a href="{% url 'dashboard-index' %}" class="logo me-auto" style="text-decoration: none; font-size: 30px; color: #e03a3c" >e-Inventory</a>
+      
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="nav-link active" href="{% url 'dashboard-index' %}">Dashboard</a></li>
+          <li><a class="nav-link" href="{% url 'user-profile' %}">{{user.profile}}</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+      <!-- .navbar -->
+
+      <a href="{% url 'user-logout' %}" class="get-started-btn">Logout</a>
+
+      {% else %}
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="nav-link mr-5" href="{% url 'user-register' %}">Register</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+      <!-- .navbar -->
+
+      <a href="{% url 'user-login' %}" class="get-started-btn ">Login</a>
+      {% endif %}
+    </div>
+  </header>
+  <!-- End Header -->
